@@ -37,13 +37,26 @@
 -   **代码块**：展示了如何通过环境变量动态切换内网/外网执行逻辑。
 -   **详情请见**：[电力内网 Skill 适配代码实践](./technical_deep_dive/intranet_skill_template/intranet_skill_adaptation.md)
 
+### 2.5 阿里通义 CoPaw 深度调研
+-   **核心干货**：分析了 CoPaw 的“端云一体”架构及其在企业级权限管控、多租户隔离方面的增强。
+-   **详情请见**：[阿里通义 CoPaw 深度调研](./alibaba_copaw_research/alibaba_copaw_deep_dive.md)
+
+### 2.6 南网 AI Agent 建设规划方案
+-   **核心干货**：提出了针对南网环境的“阉割与加固”方案，并详细设计了企业级 Cron 定时任务系统。
+-   **详情请见**：[南网 AI Agent 建设规划方案](./southern_power_grid_plan/southern_power_grid_construction_plan.md)
+
 ## 3. 框架安全性与架构对比 (NanoBanana 高清图)
+
 
 ![框架安全性与架构对比图](./images/framework_comparison_nanobanana.png)
 
 ## 4. 内网隔离部署方案设计 (NanoBanana 高清图)
 
 ![电力内网隔离环境下的 AI Agent 部署策略图](./images/intranet_deployment_strategy_nanobanana.png)
+
+## 5. 南网 AI Agent 建设三步走规划 (NanoBanana 高清图)
+
+![南方电网 AI Agent 建设三步走规划路线图](./images/spg_construction_roadmap.png)
 
 ## 5. 总结与建议
 
