@@ -1,0 +1,13 @@
+graph TD
+    A[Context Overflow Detected] --> B{Level 1: Truncate Tool Results};
+    B -- Success --> C[Retry LLM Call];
+    B -- Fail --> D{Level 2: Explicit Compaction};
+    D -- "Success (max 3 attempts)" --> C;
+    D -- Fail --> E{Level 3: SDK Auto-Compaction};
+    E -- Success --> C;
+    E -- Fail --> F[Report Error to User];
+
+    style B fill:#9f9,stroke:#333
+    style D fill:#ff9,stroke:#333
+    style E fill:#f99,stroke:#333
+    style F fill:#f66,stroke:#333

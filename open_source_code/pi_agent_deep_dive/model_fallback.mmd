@@ -1,0 +1,16 @@
+graph TD
+    A[LLM Call] --> B{Provider A / Profile 1};
+    B -- "Rate Limit" --> C[Mark Cooldown];
+    C --> D[advanceAuthProfile];
+    D --> E{Provider A / Profile 2};
+    E -- "Auth Error" --> F[Mark Cooldown];
+    F --> G[All Profiles Exhausted];
+    G --> H{Provider B / Profile 1};
+    H -- Success --> I[Return Response];
+    B -- Success --> I;
+    E -- Success --> I;
+
+    style C fill:#ff9,stroke:#333
+    style F fill:#ff9,stroke:#333
+    style G fill:#f99,stroke:#333
+    style I fill:#9f9,stroke:#333

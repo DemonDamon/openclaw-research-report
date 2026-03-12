@@ -1,0 +1,12 @@
+graph TD
+    A[Incoming Message] --> B[Session Lane Queue];
+    B -- "Per-Session Serial" --> C{Session Lane};
+    C --> D[Global Lane Queue];
+    D -- "Cross-Session Parallel" --> E{Global Lane};
+    E --> F[Agent Execution];
+    F --> G[Session Write Lock];
+    G --> H[session.jsonl];
+
+    style B fill:#f9f,stroke:#333
+    style D fill:#bbf,stroke:#333
+    style G fill:#ff9,stroke:#333

@@ -1,0 +1,18 @@
+graph TD
+    A[User Request] --> B{PI Agent Runtime};
+
+    subgraph B
+        direction LR
+        B1[1. Queue & Lock] --> B2[2. Build Prompt];
+        B2 --> B3[3. Execute w/ Fallback];
+        B3 --> B4[4. Handle Response];
+    end
+
+    B3 -- API Call --> C[LLM Providers];
+    B4 -- Tool Call --> D[Subagent Spawn];
+    D ==> B1;
+    B4 --> E[Final Response];
+
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px

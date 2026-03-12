@@ -1,0 +1,27 @@
+graph TD
+    subgraph 电力内网部署策略
+        direction LR
+        A[外部 OpenClaw Skill] --> B{Skill 迁移与重构}
+        B -- 依赖外部API --> C[内网服务重定向]
+        B -- 依赖电网协议 --> D[定制化 Skill 开发]
+
+        E[内网隔离环境] --> F{能力阉割}
+        F -- 实时搜索 --> G[内网智搜/RAG]
+        F -- 外部API --> C
+        F -- 在线Skill商店 --> H[私有化 Skill 仓库]
+
+        I[资源需求] --> J[通算 CPU]
+        I --> K[智算 GPU/NPU]
+        I --> L[内存 RAM]
+        I --> M[存储 NVMe]
+
+        N[Token 成本优化] --> O[Prompt 缓存]
+        N --> P[会话压缩]
+        N --> Q[模型分级调度]
+        N --> R[离线批处理]
+
+        style A fill:#f9f,stroke:#333,stroke-width:2px
+        style E fill:#bbf,stroke:#333,stroke-width:2px
+        style I fill:#bfb,stroke:#333,stroke-width:2px
+        style N fill:#fbb,stroke:#333,stroke-width:2px
+    end

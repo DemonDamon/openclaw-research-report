@@ -1,0 +1,22 @@
+graph LR
+    A[Tool Request] --> L1[L1: Profile Policy];
+    L1 --> L2[L2: Provider Profile];
+    L2 --> L3[L3: Global Allow/Deny];
+    L3 --> L4[L4: Global Provider];
+    L4 --> L5[L5: Agent Policy];
+    L5 --> L6[L6: Agent Provider];
+    L6 --> L7[L7: Group Policy];
+    L7 --> L8[Sandbox Policy];
+    L8 --> L9[Subagent Policy];
+    L9 --> B{Allowed?};
+    B -- Yes --> C[Execute Tool];
+    B -- No --> D[Deny];
+
+    style L1 fill:#e6f3ff,stroke:#333
+    style L2 fill:#cce6ff,stroke:#333
+    style L3 fill:#b3d9ff,stroke:#333
+    style L4 fill:#99ccff,stroke:#333
+    style L5 fill:#80bfff,stroke:#333
+    style L6 fill:#66b3ff,stroke:#333
+    style L7 fill:#4da6ff,stroke:#333
+    style D fill:#f66,stroke:#333

@@ -1,0 +1,56 @@
+graph TD
+    subgraph OpenClaw
+        OC_Core[OpenClaw Core] --> OC_Skill(Skill Ecosystem)
+        OC_Skill --> OC_MCP[MCP]
+        OC_Security(旧版安全: 信任边界模糊)
+    end
+
+    subgraph NanoClaw
+        NC_Core[NanoClawCore500行TS]
+        NC_Isolation{物理沙箱隔离}
+        NC_Core --> NC_Isolation
+        NC_Isolation --> NC_Docker(Docker/Apple Container)
+        NC_Ecosystem(极简生态: 需手动集成)
+    end
+
+    subgraph IronClaw
+        IC_Core[IronClawCoreRust]
+        IC_L1[L1: Rust 内存安全]
+        IC_L2[L2: WASM 沙箱隔离]
+        IC_L3[L3: 加密凭证保险库]
+        IC_L4[L4: 可信执行环境 TEE]
+        IC_Core --> IC_L1
+        IC_L1 --> IC_L2
+        IC_L2 --> IC_L3
+        IC_L3 --> IC_L4
+        IC_Security(四层纵深防御)
+    end
+
+    subgraph OpenClaw_311
+        OC311_Core[OpenClaw3.11Core]
+        OC311_Validation{浏览器来源验证}
+        OC311_Delegation{细粒度权限委托}
+        OC311_Hardening{默认加固配置}
+        OC311_Audit{审计日志增强}
+        OC311_Core --> OC311_Validation
+        OC311_Core --> OC311_Delegation
+        OC311_Core --> OC311_Hardening
+        OC311_Core --> OC311_Audit
+        OC311_Security(新版安全: 权限管控)
+    end
+
+    OC_Core -- 易受攻击 --> OC_Security
+    NC_Core -- 极简安全 --> NC_Isolation
+    IC_Core -- 极致安全 --> IC_Security
+    OC311_Core -- 增强安全 --> OC311_Security
+
+    OC_Security -- 风险高 --> 电力内网[电力内网部署]
+    NC_Isolation -- 国产化潜力 --> 电力内网
+    IC_Security -- 零信任安全 --> 电力内网
+    OC311_Security -- 推荐使用 --> 电力内网
+
+    style OC_Security fill:#f9f,stroke:#333,stroke-width:2px
+    style NC_Isolation fill:#bbf,stroke:#333,stroke-width:2px
+    style IC_Security fill:#bfb,stroke:#333,stroke-width:2px
+    style OC311_Security fill:#fbb,stroke:#333,stroke-width:2px
+    style 电力内网 fill:#eee,stroke:#333,stroke-width:2px

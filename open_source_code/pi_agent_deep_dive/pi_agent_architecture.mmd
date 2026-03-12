@@ -1,0 +1,72 @@
+graph TD
+    subgraph PI Agent Runtime [runEmbeddedPiAgent]
+        direction LR
+
+        A[User Request] --> B{CommandLane Queues};
+
+        subgraph B [Dual-Layer Queue]
+            direction TB
+            B1(Session Lane) --> B2(Global Lane);
+        end
+
+        B --> C{Session Write Lock};
+        C -- "Acquires Lock" --> D[session.jsonl.lock];
+        C --> E[Main Execution Loop];
+
+        subgraph E
+            direction TB
+            E1[1. Build System Prompt];
+            E2[2. Apply Tool Policy];
+            E3[3. Call LLM w/ Fallback];
+            E4[4. Handle Response];
+
+            E1 --> E2 --> E3 --> E4;
+        end
+
+        E4 --> F[Final Response to User];
+        E4 -- "Tool Call" --> H{spawnSubagentDirect};
+        H ==> B;
+
+    end
+
+    subgraph Details
+        direction TB
+
+        subgraph E1_Details [System Prompt Builder]
+            direction RL
+            E1_1[PromptMode] --> E1_Ref(Prompt);
+            E1_2[Workspace Files] --> E1_Ref;
+            E1_3[Context Files] --> E1_Ref;
+        end
+
+        subgraph E2_Details [Tool Policy Pipeline]
+            direction RL
+            E2_1(7-Layer Filter) --> E2_Ref(Policy);
+            E2_2[Available Tools] --> E2_1;
+        end
+        
+        subgraph E3_Details [Model Fallback & Provider Adaptation]
+            direction TD
+            E3_Ref(Fallback) -- "Tries" --> E3_1{Provider A};
+            E3_1 -- "Fails" --> E3_2{Provider B};
+            E3_2 -- "Fails" --> E3_3{Provider C};
+            E3_1 -- "Auth Error" --> E3_4[Rotate Auth Profile];
+            E3_4 --> E3_5[auth-profiles.json];
+            E3_Ref -- "Adapts Via" --> E3_6[transcript-policy.ts];
+        end
+
+        subgraph E4_Details [Response Handling]
+            direction TD
+            E4_Ref(Response) -- "Contains" --> E4_1{Context Overflow?};
+            E4_1 -- "Yes" --> E4_2(3-Level Recovery Strategy);
+            E4_1 -- "No" --> E4_3[Process Stream];
+            E4_3 --> E4_4(EmbeddedBlockChunker);
+        end
+    end
+
+    linkStyle default interpolate basis
+
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style E4_2 fill:#ff9,stroke:#333,stroke-width:2px
+    style H fill:#ccf,stroke:#333,stroke-width:2px
