@@ -13,6 +13,7 @@
 | :--- | :--- |
 | [ClawHub Skills 生态深度调研报告](./clawhub_skills_ecosystem.md) | 详细介绍了 ClawHub 的核心技能类别、热门插件及安装管理机制。 |
 | [OpenClaw/ClawHub 常用配置项与环境变量详解](./openclaw_config_guide.md) | 整理了 OpenClaw 运行所需的核心配置参数、环境变量及最佳实践建议。 |
+| [办公类 Skills 精选与验证机制深度调研](./office_skills_deep_dive/README.md) | 精选 Top 10 办公 Skills，建立五维验证机制与自进化架构。 |
 
 ## 3. 核心结论
 
