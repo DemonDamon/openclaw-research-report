@@ -42,8 +42,14 @@
 -   **详情请见**：[阿里通义 CoPaw 深度调研](./alibaba_copaw_research/alibaba_copaw_deep_dive.md)
 
 ### 2.6 南网 AI Agent 建设规划方案
--   **核心干货**：提出了针对南网环境的“阉割与加固”方案，并详细设计了企业级 Cron 定时任务系统。
+-   **核心干货**：提出了针对南网环境的"阉割与加固"方案，并详细设计了企业级 Cron 定时任务系统。
 -   **详情请见**：[南网 AI Agent 建设规划方案](./southern_power_grid_plan/southern_power_grid_construction_plan.md)
+
+### 2.7 HiClaw + CoPaw 南网场景深度结合方案
+-   **核心干货**：基于阿里最新开源的 HiClaw（多 Agent 协作 OS）与 CoPaw（轻量级 Python Agent），设计了"Manager(Docker) + Worker(本地模式)"的混合部署架构。
+-   **关键发现**：CoPaw 内存占用仅为 OpenClaw 的 1/5（~150MB），且本地模式可直接访问宿主机文件系统和浏览器，完美解决内网隔离环境下操作本地资源的痛点。
+-   **安全亮点**：HiClaw 的 Higress AI Gateway 集中管理凭证，Worker 永远不持有真实 API Keys，即使被攻破也无法泄露密钥。
+-   **详情请见**：[HiClaw + CoPaw 南网场景深度结合方案](./hiclaw_copaw_southern_power_grid_solution.md)
 
 ## 3. 框架安全性与架构对比 (NanoBanana 高清图)
 
@@ -72,3 +78,6 @@
 -   [IronClaw 安全加固专项调研报告](./ironclaw_security/ironclaw_security_deep_dive.md)
 -   [OpenClaw 2026.3.11 安全更新调研报告](./openclaw_311_update/openclaw_311_security_update.md)
 -   [内网隔离部署方案设计](./intranet_deployment_strategy/intranet_deployment_strategy.md)
+-   [HiClaw + CoPaw 南网场景深度结合方案](./hiclaw_copaw_southern_power_grid_solution.md)
+-   [HiClaw + CoPaw GitHub 调研笔记](./hiclaw_copaw_github_notes.md)
+-   [微信公众号文章完整内容](./hiclaw_copaw_article_full.md)
