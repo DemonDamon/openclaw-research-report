@@ -14,12 +14,18 @@
 | [ClawHub Skills 生态深度调研报告](./clawhub_skills_ecosystem.md) | 详细介绍了 ClawHub 的核心技能类别、热门插件及安装管理机制。 |
 | [OpenClaw/ClawHub 常用配置项与环境变量详解](./openclaw_config_guide.md) | 整理了 OpenClaw 运行所需的核心配置参数、环境变量及最佳实践建议。 |
 | [办公类 Skills 精选与验证机制深度调研](./office_skills_deep_dive/README.md) | 精选 Top 10 办公 Skills，建立五维验证机制与自进化架构。 |
+| [移动云盘 Skill 深度绑定方案](./mobile_clouddrive_skill/README.md) | CloudDrive-Semantic-Agent 与 App-Use-Skill 框架设计。 |
+| [云盘与 AI Agent 结合趋势分析](./clouddrive_skill_synthesis.md) | 结合腾讯文档 Skill、Google Workspace CLI、Fast.io 等分析云盘 Skill 演进方向。 |
+| [OpenClaw App 排行与 Skill 生态矩阵](./article_openclaw_app_ranking.md) | 百度 Skill 生态矩阵与 ClawHub 热门 Skills 排行分析。 |
+| [Fast.io Top 10 ClawHub Skills 调研](./fastio_top10_skills_notes.md) | 2026 年 AI Agent 开发者最佳 ClawHub Skills 排行及云盘关联分析。 |
 
 ## 3. 核心结论
 
 1.  **Skills 生态**: ClawHub 已经形成了以基础设施、项目管理、搜索和开发者工具为核心的四大技能类别。
 2.  **配置灵活性**: OpenClaw 提供了多层次的配置机制（JSON + 环境变量），能够灵活适配从个人开发到企业级部署的各种场景。
 3.  **安全建议**: 在企业级部署中，应重点关注沙箱隔离配置（`sandbox.type: docker`）和敏感信息的脱敏管理。
+4.  **云盘 Skill 趋势**: 谷歌、腾讯、百度等巨头纷纷推出云盘/文档 Skill，云盘正从"被动存储"向"智能工作流枢纽"演进。Fast.io 的"文件管理 + RAG"模式是当前最成熟的参考实现。
+5.  **移动云盘创新方向**: `CloudDrive-Semantic-Agent`（语义理解型）和 `App-Use-Skill`（App 操作代理型）是两大创新方向，可为移动云盘 App 提供差异化竞争力。
 
 ---
 **Made-with: Damon Li**
