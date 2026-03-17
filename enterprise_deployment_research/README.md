@@ -51,6 +51,13 @@
 -   **安全亮点**：HiClaw 的 Higress AI Gateway 集中管理凭证，Worker 永远不持有真实 API Keys，即使被攻破也无法泄露密钥。
 -   **详情请见**：[HiClaw + CoPaw 南网场景深度结合方案](./hiclaw_copaw_southern_power_grid_solution.md)
 
+### 2.8 新兴 Claw 框架在南网场景下的选型分析（2026.3.17 更新）
+-   **核心干货**：综合评估了英伟达 NemoClaw（企业级安全发行版）、阿里悟空 WukongClaw（多智能体协作平台）、芝麻 ChatClaw（轻量级开发者框架）在南网场景下的适配性。
+-   **关键结论**：建议南网采取"三步走"策略——以 ChatClaw/NanoClaw 为基石构建自主可控基座，借鉴 NemoClaw 建设安全管控中枢，融合悟空思想发展多智能体协作。
+-   **NemoClaw 亮点**：内置"隐私路由器"，可将敏感数据强制路由到本地模型，完美匹配内网隔离要求。
+-   **详情请见**：[新兴 Claw 框架在南网场景下的选型分析](./emerging_frameworks_synthesis_for_spg.md)
+-   **各框架详细调研**：[新兴 Claw 框架深度调研汇总](../emerging_claw_frameworks/README.md)
+
 ## 3. 框架安全性与架构对比 (NanoBanana 高清图)
 
 
@@ -81,3 +88,8 @@
 -   [HiClaw + CoPaw 南网场景深度结合方案](./hiclaw_copaw_southern_power_grid_solution.md)
 -   [HiClaw + CoPaw GitHub 调研笔记](./hiclaw_copaw_github_notes.md)
 -   [微信公众号文章完整内容](./hiclaw_copaw_article_full.md)
+-   [新兴 Claw 框架在南网场景下的选型分析](./emerging_frameworks_synthesis_for_spg.md)
+-   [NVIDIA NemoClaw 深度调研](../emerging_claw_frameworks/nemoclaw_nvidia/README.md)
+-   [阿里悟空 WukongClaw 深度调研](../emerging_claw_frameworks/wukongclaw_alibaba/README.md)
+-   [芝麻 ChatClaw 深度调研](../emerging_claw_frameworks/chatclaw_zhima/README.md)
+-   [六大开源 Claw 框架对比](../emerging_claw_frameworks/six_claw_comparison_notes.md)
